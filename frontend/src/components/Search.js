@@ -52,18 +52,20 @@ const Search = () => {
         console.log('Response:', res); // Log the entire response
 
         if (!res.ok) {
-            throw new Error(`HTTP error! Status: ${res.status}`);
+            const responseBody = await res.text();
+            throw new Error(`HTTP error! Status: ${res.status}, Response: ${responseBody}`);
         }
 
         const data = await res.json();
-        console.log(data);
+        console.log('Data:', data);
 
         const queryAdded = data.results || [];
         setResults(queryAdded);
     } catch (err) {
-        console.log('Error:', err.response);
+        console.log('Error:', err.message);
     }
 };
+
 
 
   return (
