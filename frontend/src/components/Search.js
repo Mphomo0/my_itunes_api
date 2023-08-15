@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Row, Dropdown, ButtonGroup, DropdownButton, Card, Button, Col } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import Result from "./Result";
@@ -52,7 +51,7 @@ const Search = () => {
         console.log('Response:', res); // Log the entire response
 
         if (!res.ok) {
-            const responseBody = await res.text();
+            const responseBody = await res.json();
             throw new Error(`HTTP error! Status: ${res.status}, Response: ${responseBody}`);
         }
 
