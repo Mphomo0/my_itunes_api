@@ -52,11 +52,10 @@ const Search = () => {
 
         if (!res.ok) {
             const responseBody = await res.json();
-            throw new Error(`HTTP error! Status: ${res.status}, Response: ${responseBody}`);
+            throw new Error(`HTTP error! Status: ${res.status}`);
         }
 
         const data = await res.json();
-        console.log('Data:', data);
 
         const queryAdded = data.results || [];
         setResults(queryAdded);
