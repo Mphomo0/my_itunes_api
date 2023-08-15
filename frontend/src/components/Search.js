@@ -43,7 +43,7 @@ const Search = () => {
     e.preventDefault();
 
     axios
-      .get(`https://mpho-search-api.onrender.com/search/?term=${name}&type=${type}`, {
+      .get(`https://mpho-search-api.onrender.com/search/?name=${name}&type=${type}`, {
         headers: {
           "Content-Type": "application/json"
         },
