@@ -61,7 +61,7 @@ const Search = () => {
         const queryAdded = data.results || [];
         setResults(queryAdded);
     } catch (err) {
-        console.log('Error:', err.message);
+        console.error('Error:', err.message);
     }
 };
 
