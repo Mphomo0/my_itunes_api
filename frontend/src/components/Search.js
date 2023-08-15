@@ -39,24 +39,32 @@ const Search = () => {
     setType(categories[selectedCategory]);
   };
 
-  const handleSubmitSearch = (e) => {
+  const handleSubmitSearch = async (e) => {
     e.preventDefault();
 
-    axios
-      .get(`/search/?name=${name}&type=${type}`, {
-        headers: {
-          "Content-Type": "application/json"
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        const queryAdded = res.data.results || [];
+    try {
+        const res = await fetch(`/search/?name=${name}&type=${type}`, {
+            headers: {
+                "Content-Type": "application/json"
+            },
+        });
+
+        console.log('Response:', res); // Log the entire response
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
+        const data = await res.json();
+        console.log(data);
+
+        const queryAdded = data.results || [];
         setResults(queryAdded);
-      })
-      .catch((err) => {
-        console.log(err.toJSON());
-      });
-  };
+    } catch (err) {
+        console.log('Error:', err.response);
+    }
+};
+
 
   return (
     <div id="searchcontainer">
