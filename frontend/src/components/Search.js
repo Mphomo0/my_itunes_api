@@ -49,6 +49,7 @@ const Search = () => {
         },
       })
       .then((res) => {
+        console.log("Response from API:", res.data);
         const queryAdded = res.data.results || [];
         setResults(queryAdded);
       })
