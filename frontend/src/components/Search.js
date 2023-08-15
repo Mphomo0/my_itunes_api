@@ -53,7 +53,7 @@ const Search = () => {
         setResults(queryAdded);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
       });
   };
 
