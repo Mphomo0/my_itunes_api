@@ -48,8 +48,6 @@ const Search = () => {
             },
         });
 
-        console.log('Response:', res); // Log the entire response
-
         if (!res.ok) {
             const responseBody = await res.json();
             throw new Error(`HTTP error! Status: ${res.status}`);
