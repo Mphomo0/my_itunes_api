@@ -39,5 +39,7 @@ console.log("Server is listening on port", PORT);
 // Error handling middleware: if an error occurs during request processing, log the error and send a 500 response
 app.use(function (err, req, res, next) {
   console.log(err.stack);
-  res.status(500).send("Something broke!");
+
+  // Respond with JSON format
+  res.status(500).json({ error: "Something broke!" });
 });
