@@ -4,7 +4,7 @@ const express = require("express");
 exports.searchController = (req, res) => {
     // Fetch data from the iTunes Search API using the provided query parameters.
     fetch(
-        `https://itunes.apple.com/search?term=${req.query.name}&limit=30&entity=${req.query.type}`
+        `https://itunes.apple.com/search?term=${req.params.name}&limit=30&entity=${req.params.type}`
     )
     .then((response) => response.json()) // Convert the response to JSON
     .then((results) => {
