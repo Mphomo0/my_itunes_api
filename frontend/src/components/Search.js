@@ -43,7 +43,7 @@ const Search = () => {
     e.preventDefault();
 
     try {
-        const res = await fetch(`/search/?name=${name}&type=${type}`, {
+        const res = await fetch(`/search?name=${name}&type=${type}`, {
             headers: {
                 "Content-Type": "application/json"
             },
